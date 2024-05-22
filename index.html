@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="ru" data-bs-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- типа импорты дооооооо -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js" integrity="sha384-fbbOQedDUMZZ5KreZpsbe1LCZPVmfTnH7ois6mU1QK+m14rQ1l2bGBq41eYeM/fS" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <script src="index.js"></script>
+    
+    <!-- добро пожаловать на второй сервис который я написал велл велл велл -->
+    <title>colors!</title>
+</head>
+<body>
+    <br><br><br><br>
+    <div class="container">
+        <div class="row">
+            <header class="font-monospace text-center">
+                <h2>colors! - ваш универсальный инструмент для управлением цветом</h2>
+            </header>
+        </div>
+        <br><br>
+        <div class="row font-monospace">
+            <div class="col-4 text-center">
+                <h3>переводчик цветов</h3>
+                <div class="input-group mb-3">
+                    <input type="text" class="form-control" id="hexInput" placeholder="HEX"  aria-label="HEX">
+                    <button class="input-group-text" id="convertHex"><-></button>
+                    <input type="text" class="form-control" id="rgbOutput" placeholder="RGB" aria-label="RGB">
+                </div>
+            </div>
+
+            <div class="col-4 text-center">
+                <h3>палитра</h3>
+            </div>
+
+            <div class="col-4 text-center">
+                <h3>переводчик цветов</h3>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        $(document).ready(function() {
+            $('#convertHex').click(function() {
+                var hexColor = $(this).val();
+                var rgbColor = hexToRgb(hexColor);
+                $('#rgbOutput').text(rgbColor);
+            });
+
+            function hexToRgb(hex) {
+                hex = hex.replace('#', '');
+                var r = parseInt(hex.substring(0, 2), 16);
+                var g = parseInt(hex.substring(2, 4), 16);
+                var b = parseInt(hex.substring(4, 6), 16);
+                return r + ', ' + g + ', ' + b;
+            }
+        });
+    </script>
+</body>
+</html>
